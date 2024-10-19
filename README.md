@@ -1,1 +1,1 @@
-# moe-soulbound-token
+# MOE Soulbound Token
