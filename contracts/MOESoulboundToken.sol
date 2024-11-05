@@ -19,7 +19,7 @@ contract MOESoulboundToken is Ownable, ERC721, ERC721Burnable, ERC721URIStorage 
 
     }
 
-    function _update(address to, uint256 tokenId, address auth) internal virtual override {
+    function _update(address to, uint256 tokenId, address auth) internal virtual override returns (address) {
         
         address from = _ownerOf(tokenId);
 
@@ -37,6 +37,10 @@ contract MOESoulboundToken is Ownable, ERC721, ERC721Burnable, ERC721URIStorage 
 
     function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721URIStorage) returns (bool) {
         return super.supportsInterface(interfaceId);
+    }
+
+    function tokenURI(uint256 tokenId) public view override(ERC721, ERC721URIStorage) returns (string memory) {
+        return super.tokenURI(tokenId);
     }
         
 }
