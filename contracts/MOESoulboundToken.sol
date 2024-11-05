@@ -2,15 +2,22 @@
 pragma solidity 0.8.28;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 struct Artist {
     string name;
     string uri;
 }
 
-contract MOESoulboundToken {
+contract MOESoulboundToken is Ownable, ERC721, ERC721Burnable, ERC721URIStorage {
 
     mapping (address => Artist) public artists;
+
+    constructtor(address _ownerAddress, string memory _name, string memory _symbol) Ownerable(_ownerAddress) ERC721(_name, _symbol) {
+
+    }
 
     function _update(address to, uint256 tokenId, address auth) internal virtual override {
         
@@ -23,5 +30,13 @@ contract MOESoulboundToken {
         return super._update(to, tokenId, auth);
     }
 
+    function safeMint(address to, uint256 tokenId, string memory uri) public onlyOnwer {
+        _safeMint(to, tokenId);
+        _setTokenURI(tokenId, uri);
+    }
 
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721URIStorage) returns (bool) {
+        return super.supportsInterface(interfaceId);
+    }
+        
 }
