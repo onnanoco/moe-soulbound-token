@@ -19,5 +19,5 @@ npx hardhat run --network {ethereum||sepolia} "scripts/deploy.js"
 ## Verify
 
 ```bash
-npx hardhat verify --constructor-args arguments.js --contract "contracts/MOESoulboundToken.sol:MoeSoulboundToken" --network {ethereum||sepolia} {CONTRACT_ADDRESS}
+npx hardhat verify --constructor-args arguments.js --contract "contracts/MOESoulboundToken.sol:MOESoulboundToken" --network {ethereum||sepolia} {CONTRACT_ADDRESS}
 ```
