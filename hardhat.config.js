@@ -10,14 +10,14 @@ module.exports = {
   networks: {
     sepolia: {
       url: process.env.SEPOLIA_RPC_ENDPOINT,
-      accounts: [process.env.SEPOLIA_PRIVATE_KEY],
+      accounts: [process.env.OWNER_PRIVATE_KEY],
       chainId: 11155111,
       gas: "auto",
       gasPrice: "auto"
     },
     ethereum: {
       url: process.env.ETHEREUM_RPC_ENDPOINT,
-      accounts: [process.env.ETHEREUM_PRIVATE_KEY],
+      accounts: [process.env.OWNER_PRIVATE_KEY],
       chainId: 1,
       gas: "auto",
       gasPrice: "auto"
