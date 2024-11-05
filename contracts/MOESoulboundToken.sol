@@ -15,7 +15,7 @@ contract MOESoulboundToken is Ownable, ERC721, ERC721Burnable, ERC721URIStorage 
 
     mapping (address => Artist) public artists;
 
-    constructtor(address _ownerAddress, string memory _name, string memory _symbol) Ownerable(_ownerAddress) ERC721(_name, _symbol) {
+    constructor(address _ownerAddress, string memory _name, string memory _symbol) Ownable(_ownerAddress) ERC721(_name, _symbol) {
 
     }
 
@@ -30,7 +30,7 @@ contract MOESoulboundToken is Ownable, ERC721, ERC721Burnable, ERC721URIStorage 
         return super._update(to, tokenId, auth);
     }
 
-    function safeMint(address to, uint256 tokenId, string memory uri) public onlyOnwer {
+    function safeMint(address to, uint256 tokenId, string memory uri) public onlyOwner {
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
     }
