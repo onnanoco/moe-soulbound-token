@@ -23,6 +23,9 @@ module.exports = {
       gasPrice: "auto"
     }
   },
+  sourcify: {
+    enabled: true
+  },
   etherscan: {
     apiKey: {
       sepolia: process.env.ETHERSCAN_API_KEY,
